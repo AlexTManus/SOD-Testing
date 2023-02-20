@@ -62,7 +62,7 @@ def log_broker_list(broker_list):
 
 
 with Flow("Brokerage Evaluation") as flow:
-    flow.storage = GitHub(repo='hedgeco/smartx-prefect-flows', path="run_evaluations_by_broker.py",
+    flow.storage = GitHub(repo='AlexTManus/SOD-Testing', path="main.py",
                             access_token_secret="GITHUB_ACCESS_TOKEN")
     broker_list = Parameter("broker_list", default=None)
     evaluation_date = date.today().strftime('%m/%d/%Y')
