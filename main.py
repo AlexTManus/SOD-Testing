@@ -54,10 +54,11 @@ def iterate_brokers(broker_list):
     logger.info("Type: " + str(type(broker_list)))
     logger.info("|||||||||||||||||||||||||")
     logger.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    #for broker in broker_list:
-     #   (brokerage_id, brokerage_name) = broker
-      #  logger.info(f"Begin Processing of {brokerage_name} with ID: {brokerage_id}")
-       # Sleep(inter_broker_delay)
+    broker_list = list(broker_list)
+    for broker in broker_list:
+        (brokerage_id, brokerage_name) = broker
+        logger.info(f"Begin Processing of {brokerage_name} with ID: {brokerage_id}")
+        Sleep(inter_broker_delay)
     return result
 
 
