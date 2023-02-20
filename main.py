@@ -51,7 +51,7 @@ def publish_to_slack(webhook, msg):
 def iterate_brokers(broker_list):
     logger.info("|||||||||||||||||||||||||")
     logger.info(broker_list)
-    logger.info("Type: str(type(broker_list")))
+    logger.info("Type: " + str(type(broker_list)))
     logger.info("|||||||||||||||||||||||||")
     logger.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
     #for broker in broker_list:
