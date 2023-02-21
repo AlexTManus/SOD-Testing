@@ -53,10 +53,16 @@ def iterate_brokers(broker_list):
     logger.info(broker_list)
     logger.info("Type: " + str(type(broker_list)))
     logger.info("|||||||||||||||||||||||||")
-    logger.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    broker_list = list(broker_list)
+    array = '{"drinks": ["("Apple","CAT")", "tea", "water"]}'
+    #data = json.loads(array)
+    print("DDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
+    #broker_list = r"""{"brokers": [("f1df79e0-b156-11ed-afa1-0242ac120002", "Apple"), ("f1df7ecc-b156-11ed-afa1-0242ac120002", "Donkey"), ("f1df8098-b156-11ed-afa1-0242ac120002", "Penguin")]}"""
+    broker_list = json.loads(broker_list)
     for broker in broker_list:
-        (brokerage_id, brokerage_name) = broker
+        print(broker)
+
+        brokerage_name = broker
+        brokerage_id = broker_list[broker]
         logger.info(f"Begin Processing of {brokerage_name} with ID: {brokerage_id}")
         Sleep(inter_broker_delay)
     return result
@@ -85,10 +91,6 @@ with Flow("EvalTest") as flow:
 
 if __name__ == "__main__":
     flow.register(project_name="SOD-Testing", labels=["Run Evaluations by Broker"])
-    broker_list = [
-                    ('f1df79e0-b156-11ed-afa1-0242ac120002', 'Apple'),
-                    ('f1df7ecc-b156-11ed-afa1-0242ac120002', 'Donkey'),
-                    ('f1df8098-b156-11ed-afa1-0242ac120002', 'Penguin'),
-                  ]
+    broker_list = '{"Apple":"f1df79e0-b156-11ed-afa1-0242ac120002","Donkey":"f1df7ecc-b156-11ed-afa1-0242ac120002", "Penguin":"f1df8098-b156-11ed-afa1-0242ac120002"}'
 
     flow.run(parameters={"broker_list": broker_list})
