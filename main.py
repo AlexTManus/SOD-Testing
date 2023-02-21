@@ -76,7 +76,7 @@ def log_broker_list(broker_list):
 with Flow("EvalTest") as flow:
     flow.storage = GitHub(repo='AlexTManus/SOD-Testing', path="main.py",
                             access_token_secret="GITHUB_ACCESS_TOKEN")
-    broker_list = Parameter("broker_list", default=None)
+    broker_list = Parameter("broker_list", required=True)
     evaluation_date = date.today().strftime('%m/%d/%Y')
     greeting = publish_to_slack(webhook=slack_web_hook, msg="Beginning Run - Evaluate Brokerages.")
     export_list = log_broker_list(broker_list)
