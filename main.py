@@ -57,7 +57,7 @@ def iterate_brokers(broker_list):
     #data = json.loads(array)
     print("DDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
     #broker_list = r"""{"brokers": [("f1df79e0-b156-11ed-afa1-0242ac120002", "Apple"), ("f1df7ecc-b156-11ed-afa1-0242ac120002", "Donkey"), ("f1df8098-b156-11ed-afa1-0242ac120002", "Penguin")]}"""
-    broker_list = json.loads(broker_list)
+    #broker_list = json.loads(broker_list)
     for broker in broker_list:
         print(broker)
 
